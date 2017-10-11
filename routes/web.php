@@ -25,3 +25,7 @@ Route::get('/testendpoint', function(){
            ];
   return response()->json($data);
 });
+
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('home');

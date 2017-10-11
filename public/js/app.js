@@ -59211,6 +59211,15 @@ var Master = function (_Component) {
                   { href: '#' },
                   'Page 3'
                 )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'a',
+                  { href: '/logout' },
+                  'Logout'
+                )
               )
             )
           )
@@ -59589,7 +59598,7 @@ var TableRow = function (_Component) {
       event.preventDefault();
       var uri = 'http://127.0.0.1:8000/services/' + this.props.obj.id;
       axios.delete(uri);
-      this.props.history.push('/display-item');
+      __WEBPACK_IMPORTED_MODULE_1_react_router__["browserHistory"].push('/display-item');
     }
   }, {
     key: 'render',
