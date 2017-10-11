@@ -1,5 +1,5 @@
+// Example.js
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
 export default class Example extends Component {
     render() {
@@ -11,7 +11,7 @@ export default class Example extends Component {
                             <div className="panel-heading">Example Component</div>
 
                             <div className="panel-body">
-                                I'm an example component!
+                                I am an example component!
                             </div>
                         </div>
                     </div>
@@ -19,8 +19,4 @@ export default class Example extends Component {
             </div>
         );
     }
-}
-
-if (document.getElementById('example')) {
-    ReactDOM.render(<Example />, document.getElementById('example'));
 }
