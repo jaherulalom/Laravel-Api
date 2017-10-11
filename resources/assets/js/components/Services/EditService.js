@@ -45,14 +45,14 @@ class EditService extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const products = {
+    const services = {
       name: this.state.name,
       description: this.state.description,
       duration: this.state.duration,
       cost: this.state.cost
     }
-    let uri = 'http://localhost:8000/items/'+this.props.params.id;
-    axios.patch(uri, products).then((response) => {
+    let uri = 'http://127.0.0.1:8000/services/'+this.props.params.id;
+    axios.patch(uri, services).then((response) => {
           this.props.history.push('/display-item');
     });
   }
@@ -75,21 +75,21 @@ class EditService extends Component {
                   onChange={this.handleChange1} />
             </div>
             <div className="form-group">
-                <label>Item Name</label>
+                <label>Item description</label>
                 <input type="text"
                   className="form-control"
                   value={this.state.description}
                   onChange={this.handleChange2} />
             </div>
             <div className="form-group">
-                <label>Item Name</label>
+                <label>Item Duration</label>
                 <input type="text"
                   className="form-control"
                   value={this.state.duration}
                   onChange={this.handleChange3} />
             </div>
             <div className="form-group">
-                <label name="product_price">Item Price</label>
+                <label name="product_cost">Item Cost</label>
                 <input type="text" className="form-control"
                   value={this.state.cost}
                   onChange={this.handleChange4} />

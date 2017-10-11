@@ -87,7 +87,7 @@ class ServicesController extends Controller
         $services->name = $request->get('name');
         $services->description = $request->get('description');
         $services->duration = $request->get('duration');
-        $services->price = $request->get('price');
+        $services->cost = $request->get('cost');
         $services->save();
 
         return response()->json('Successfully Updated');

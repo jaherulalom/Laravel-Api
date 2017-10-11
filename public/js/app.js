@@ -59589,7 +59589,7 @@ var TableRow = function (_Component) {
       event.preventDefault();
       var uri = 'http://127.0.0.1:8000/services/' + this.props.obj.id;
       axios.delete(uri);
-      browserHistory.push('/display-item');
+      this.props.history.push('/display-item');
     }
   }, {
     key: 'render',
@@ -59797,14 +59797,14 @@ var EditService = function (_Component) {
       var _this3 = this;
 
       event.preventDefault();
-      var products = {
+      var services = {
         name: this.state.name,
         description: this.state.description,
         duration: this.state.duration,
         cost: this.state.cost
       };
-      var uri = 'http://localhost:8000/items/' + this.props.params.id;
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.patch(uri, products).then(function (response) {
+      var uri = 'http://127.0.0.1:8000/services/' + this.props.params.id;
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.patch(uri, services).then(function (response) {
         _this3.props.history.push('/display-item');
       });
     }
@@ -59855,7 +59855,7 @@ var EditService = function (_Component) {
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'label',
               null,
-              'Item Name'
+              'Item description'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text',
               className: 'form-control',
@@ -59868,7 +59868,7 @@ var EditService = function (_Component) {
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'label',
               null,
-              'Item Name'
+              'Item Duration'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text',
               className: 'form-control',
@@ -59880,8 +59880,8 @@ var EditService = function (_Component) {
             { className: 'form-group' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'label',
-              { name: 'product_price' },
-              'Item Price'
+              { name: 'product_cost' },
+              'Item Cost'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control',
               value: this.state.cost,
