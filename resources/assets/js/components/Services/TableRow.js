@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
+import { Link, browserHistory } from 'react-router';
 
 class TableRow extends Component {
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+}
+handleSubmit(event) {
+  event.preventDefault();
+  let uri = `http://127.0.0.1:8000/services/${this.props.obj.id}`;
+  axios.delete(uri);
+    browserHistory.push('/display-item');
+}
   render() {
     return (
         <tr>
@@ -14,10 +25,12 @@ class TableRow extends Component {
             {this.props.obj.price}
           </td>
           <td>
-            <button className="btn btn-primary">Edit</button>
+          <Link to={"edit/"+this.props.obj.id} className="btn btn-primary">Edit</Link>
           </td>
           <td>
-            <button className="btn btn-danger">Delete</button>
+          <form onSubmit={this.handleSubmit}>
+            <input type="submit" value="Delete" className="btn btn-danger"/>
+         </form>
           </td>
         </tr>
     );

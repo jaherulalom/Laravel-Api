@@ -15,12 +15,14 @@ import Master from './components/Master';
 import CreateService from './components/Services/CreateService';
 import DisplayItem from './components/Services/DisplayServices';
 import index from './components/Services/index';
+import EditService from './components/Services/EditService';
 
 render(
   <Router history={browserHistory}>
       <Route path="/" component={Master} >
       <Route path="/services-home" component={index} />
       <Route path="/add-item" component={CreateService} />
+      <Route path="/edit/:id" component={EditService} />
       <Route path="/display-item" component={DisplayItem} />
       </Route>
     </Router>,
