@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {browserHistory} from 'react-router';
 
 class CreateItem extends Component {
   constructor(props){
@@ -42,7 +43,7 @@ class CreateItem extends Component {
     let uri = 'http://127.0.0.1:8000/services';
     console.log(services);
     axios.post(uri, services).then((response) => {
-      // browserHistory.push('/display-item');
+      browserHistory.push('/display-item');
     });
   }
 
