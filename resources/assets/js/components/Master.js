@@ -3,6 +3,8 @@
 import React, {Component} from 'react';
 import { Router, Route, Link } from 'react-router';
 
+import Home from './Home/Home';
+
 class Master extends Component {
   render(){
     return (
@@ -15,9 +17,9 @@ class Master extends Component {
             <ul className="nav navbar-nav">
               <li className="active"><a href="#">Home</a></li>
               <li><Link to="services-home">Services</Link></li>
-              <li><a href="#">Page 1</a></li>
-              <li><a href="#">Page 2</a></li>
-              <li><a href="#">Page 3</a></li>
+              <li><a href="#">Availability</a></li>
+              <li><a href="#">Appointments</a></li>
+              <li><Link to="users-home">User Management</Link></li>
               <li><a href="/logout">Logout</a></li>
             </ul>
           </div>

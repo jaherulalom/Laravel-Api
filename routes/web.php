@@ -11,11 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::resource('services', 'ServicesController');
+Route::resource('users', 'UsersController');
 
 Route::get('/testendpoint', function(){
   $data = ['staus' => 'ok',
