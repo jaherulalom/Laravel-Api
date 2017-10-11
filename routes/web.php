@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+Route::get('/testendpoint', function(){
+  $data = ['staus' => 'ok',
+           'id' => 10,
+           'name'=>'something',
+           'address'=>'something'
+           ];
+  return response()->json($data);
+});
