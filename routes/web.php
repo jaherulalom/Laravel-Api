@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::resource('services', 'ServicesController');
 
 Route::get('/testendpoint', function(){
   $data = ['staus' => 'ok',

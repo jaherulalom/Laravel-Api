@@ -15,7 +15,8 @@ class ServicesController extends Controller
     public function index()
     {
         //
-        return response()->json(Services::all());
+        $services = Services::all();
+        return response()->json($services);
     }
 
     /**
@@ -38,6 +39,14 @@ class ServicesController extends Controller
     public function store(Request $request)
     {
         //
+        $services = new Services([
+          'name' => $request->get('name'),
+          'description' => $request->get('description'),
+          'duration' => $request->get('duration'),
+          'cost' => $request->get('cost')
+        ]);
+        $services->save();
+        return response()->json('Successfully added');
     }
 
     /**
@@ -60,6 +69,8 @@ class ServicesController extends Controller
     public function edit($id)
     {
         //
+        $services = Services::find($id);
+        return response()->json($services);
     }
 
     /**
@@ -72,6 +83,14 @@ class ServicesController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $services = Services::find($id);
+        $services->name = $request->get('name');
+        $services->description = $request->get('description');
+        $services->duration = $request->get('duration');
+        $services->price = $request->get('price');
+        $services->save();
+
+        return response()->json('Successfully Updated');
     }
 
     /**
@@ -83,5 +102,9 @@ class ServicesController extends Controller
     public function destroy($id)
     {
         //
+        $services = Services::find($id);
+        $services->delete();
+
+        return response()->json('Successfully Deleted');
     }
 }

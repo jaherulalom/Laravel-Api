@@ -12,10 +12,12 @@ import { render } from 'react-dom';
 import { Router, Route, browserHistory } from 'react-router';
 
 import Master from './components/Master';
+import CreateService from './components/Services/CreateService';
 
 render(
   <Router history={browserHistory}>
       <Route path="/" component={Master} >
+      <Route path="/add-item" component={CreateService} />
       </Route>
     </Router>,
         document.getElementById('example'));
