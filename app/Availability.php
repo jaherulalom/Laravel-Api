@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Services extends Model
+class Availability extends Model
 {
     //
     protected $fillable = [
-        'name', 'description', 'duration', 'cost'
+        'date', 'time', 'available'
     ];
 }
