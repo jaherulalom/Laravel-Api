@@ -24,6 +24,13 @@ import UsersHome from './components/Users/UsersHome';
 import CreateUser from './components/Users/CreateUser';
 import DisplayUser from './components/Users/DisplayUser';
 import EditUser from './components/Users/EditUser';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+try {
+    injectTapEventPlugin();
+} catch (e) {
+    // do nothing
+}
 
 render(
   <Router history={browserHistory}>
