@@ -11,6 +11,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, browserHistory } from 'react-router';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 
 import Master from './components/Master';
@@ -30,10 +31,14 @@ import EditUser from './components/Users/EditUser';
 //Availability imports
 import AvailabilityHome from './components/Availability/Availability';
 
+import Home from './components/Home/Home'
+
+injectTapEventPlugin();
+
 render(
   <MuiThemeProvider>
   <Router history={browserHistory}>
-      <Route path="/" component={Master} >
+      <Route path="/" component={Master} >;
       //service routes here
       <Route path="/services-home" component={index} />
       <Route path="/add-item" component={CreateService} />
