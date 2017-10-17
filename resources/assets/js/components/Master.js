@@ -2,31 +2,27 @@
 
 import React, {Component} from 'react';
 import { Router, Route, Link } from 'react-router';
-
-import Home from './Home/Home';
+import AppBar from 'material-ui/AppBar';
+import LeftDrawer from './LeftDrawer';
 
 class Master extends Component {
+  constructor(props) {
+  super(props);
+  this.state = {open: false};
+}
+
+handleTouchMap() {
+    this.setState({open: !this.state.open});
+  }
+
   render(){
     return (
-      <div className="container">
-        <nav className="navbar navbar-default">
-          <div className="container-fluid">
-            <div className="navbar-header">
-              <a className="navbar-brand" href="#">Appointments System</a>
-            </div>
-            <ul className="nav navbar-nav">
-              <li className="active"><a href="#">Home</a></li>
-              <li><Link to="services-home">Services</Link></li>
-              <li><a href="#">Availability</a></li>
-              <li><a href="#">Appointments</a></li>
-              <li><Link to="users-home">User Management</Link></li>
-              <li><a href="/logout">Logout</a></li>
-            </ul>
-          </div>
-      </nav>
-          <div>
-              {this.props.children}
-          </div>
+      <div>
+      <AppBar
+          title = { "Test 1" }
+          onLeftIconButtonTouchTap = { this.handleTouchMap.bind(this) }
+        />
+        <LeftDrawer open={this.state.open} />
       </div>
     )
   }

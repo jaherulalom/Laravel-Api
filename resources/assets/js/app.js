@@ -10,6 +10,8 @@ require('./bootstrap');
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, browserHistory } from 'react-router';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 
 import Master from './components/Master';
 
@@ -24,15 +26,12 @@ import UsersHome from './components/Users/UsersHome';
 import CreateUser from './components/Users/CreateUser';
 import DisplayUser from './components/Users/DisplayUser';
 import EditUser from './components/Users/EditUser';
-import injectTapEventPlugin from 'react-tap-event-plugin';
 
-try {
-    injectTapEventPlugin();
-} catch (e) {
-    // do nothing
-}
+//Availability imports
+import AvailabilityHome from './components/Availability/Availability';
 
 render(
+  <MuiThemeProvider>
   <Router history={browserHistory}>
       <Route path="/" component={Master} >
       //service routes here
@@ -45,6 +44,9 @@ render(
       <Route path="/add-users" component={CreateUser} />
       <Route path="/users/:id/edit" component={EditUser} />
       <Route path="/display-users" component={DisplayUser} />
+      // Availability Routes
+      <Route path="/availability-home" component={AvailabilityHome} />
       </Route>
-    </Router>,
+    </Router>
+    </MuiThemeProvider>,
         document.getElementById('example'));
