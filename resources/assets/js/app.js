@@ -30,6 +30,7 @@ import EditUser from './components/Users/EditUser';
 
 //Availability imports
 import AvailabilityHome from './components/Availability/Availability';
+import SetAvailability from './components/Availability/SetAvailability';
 
 import Home from './components/Home/Home'
 
@@ -51,6 +52,7 @@ render(
       <Route path="/display-users" component={DisplayUser} />
       // Availability Routes
       <Route path="/availability-home" component={AvailabilityHome} />
+      <Route path="/set-availability" component={SetAvailability} />
       </Route>
     </Router>
     </MuiThemeProvider>,
