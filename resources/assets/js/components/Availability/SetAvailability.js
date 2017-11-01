@@ -10,6 +10,7 @@ import {
   grey200,
   grey700
 } from 'material-ui/styles/colors';
+import moment from 'moment'
 
 class SetAvailability extends React.Component {
   constructor(props){
@@ -19,16 +20,16 @@ class SetAvailability extends React.Component {
       appointmentTime: ''
     };
 
-    this.handleChange1 = this.handleChange1.bind(this);
+    // this.handleChange1 = this.handleChange1.bind(this);
     this.handleChange2 = this.handleChange2.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange1(e, v){
+  handleChange1(e, date){
     this.setState({
-      // appointmentDate: v.target.value
+       appointmentDate: v.value
     })
-    console.log(e, v);
+    console.log(e, date);
   }
   handleChange2(e){
     this.setState({
@@ -68,7 +69,8 @@ class SetAvailability extends React.Component {
                 <p>Select the date</p>
                 <DatePicker
                   hintText="Select the date"
-                  onChange={this.handleChange1} />
+                  formatDate={(date) => moment(date).format('DD-MM-YYYY')}
+                  onChange={this.handleChange1.bind(this)} />
               </div>
               <div>
                 <p>Select Time</p>
