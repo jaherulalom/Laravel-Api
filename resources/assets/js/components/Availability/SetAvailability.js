@@ -1,4 +1,5 @@
 import React from 'react';
+import {browserHistory} from 'react-router';
 import DatePicker from 'material-ui/DatePicker';
 import TimePicker from 'material-ui/TimePicker';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -16,40 +17,38 @@ class SetAvailability extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      appointmentDate: '',
+      appointmentDate: null,
       appointmentTime: ''
     };
-
-    // this.handleChange1 = this.handleChange1.bind(this);
-    this.handleChange2 = this.handleChange2.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange1(e, date){
+  handleChange1(v, date){
+    const finaldate = date.getDate() + '-' +  (date.getMonth() + 1)  + '-' +  date.getFullYear()
     this.setState({
-       appointmentDate: v.value
-    })
-    console.log(e, date);
-  }
-  handleChange2(e){
+       appointmentDate: finaldate,
+    });
+}
+  handleChange2(e, time){
+    const finaltime = time.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
     this.setState({
-      appointmentTime: e.target.value
+      appointmentTime: finaltime
     })
   }
 
   handleSubmit(e){
     e.preventDefault();
     const Availability = {
-      appointmentDate: this.state.appointmentDate,
-      appointmentTime: this.state.appointmentTime
+      id: window.id,
+      date: this.state.appointmentDate,
+      time: this.state.appointmentTime,
+      available: '1'
     }
     let uri = 'http://127.0.0.1:8000/availability';
     console.log(Availability);
-    // axios.post(uri, Availability).then((response) => {
-    //   browserHistory.push('/availability-home');
-    // })
+    axios.post(uri, Availability).then((response) => {
+      browserHistory.push('/availability-home');
+    })
   }
-
 
   render() {
     return (
@@ -57,7 +56,8 @@ class SetAvailability extends React.Component {
       <div className="row">
         <div className="col-md-6">
           <Card>
-          <form onSubmit={this.handleSubmit}>
+          <form>
+            <p>hello { id }</p>
             <CardHeader
               title="SET AVAILABILITY"
               titleColor={grey700}
@@ -68,23 +68,26 @@ class SetAvailability extends React.Component {
               <div>
                 <p>Select the date</p>
                 <DatePicker
-                  hintText="Select the date"
-                  formatDate={(date) => moment(date).format('DD-MM-YYYY')}
-                  onChange={this.handleChange1.bind(this)} />
+                   hintText="Select the date"
+                   formatDate={(date) => moment(date).format('DD-MM-YYYY')}
+                   onChange={this.handleChange1.bind(this)}
+                   />
               </div>
               <div>
                 <p>Select Time</p>
                 <TimePicker
                   hintText="Select Hour and Minute"
                   minutesStep={10}
-                  onChange={this.handleChange2}
+                  onChange={this.handleChange2.bind(this)}
                 />
               </div>
             </CardText>
             <CardActions>
               <RaisedButton
                 label="Add"
-                primary={true} />
+                primary={true}
+                onClick={this.handleSubmit.bind(this)}
+                />
             </CardActions>
             </form>
           </Card>

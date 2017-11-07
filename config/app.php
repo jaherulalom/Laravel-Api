@@ -164,6 +164,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
+        // Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
 
         /*
          * Package Service Providers...

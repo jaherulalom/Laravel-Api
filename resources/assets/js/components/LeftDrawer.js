@@ -30,6 +30,7 @@ class LeftDrawer extends React.Component {
               <Link to="services-home"><MenuItem onTouchTap={this.handleClose}>Services</MenuItem></Link>
               <Link to="availability-home"><MenuItem onTouchTap={this.handleClose}>Availability</MenuItem></Link>
               <Link to="users-home"><MenuItem onTouchTap={this.handleClose}>User Management</MenuItem></Link>
+              <Link to="booking-home"><MenuItem onTouchTap={this.handleClose}>Manage Bookings</MenuItem></Link>
         </Drawer>
       </div>
     );

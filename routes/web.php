@@ -16,6 +16,8 @@
 // });
 
 Route::resource('services', 'ServicesController');
+Route::resource('availability', 'AvailabilityController');
+Route::resource('appointments', 'AppointmentsController');
 Route::resource('users', 'UsersController');
 
 Route::get('/testendpoint', function(){

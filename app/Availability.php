@@ -8,6 +8,6 @@ class Availability extends Model
 {
     //
     protected $fillable = [
-        'date', 'time', 'available'
+        'user_id', 'date', 'time', 'available'
     ];
 }

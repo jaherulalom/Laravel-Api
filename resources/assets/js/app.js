@@ -32,7 +32,11 @@ import EditUser from './components/Users/EditUser';
 import AvailabilityHome from './components/Availability/Availability';
 import SetAvailability from './components/Availability/SetAvailability';
 
+// Booking imports
+import BookingHome from './components/Booking/Booking';
 import Home from './components/Home/Home'
+import CreateBooking from './components/Booking/CreateBooking';
+import DisplayBooking from './components/Booking/DisplayBooking';
 
 injectTapEventPlugin();
 
@@ -53,6 +57,10 @@ render(
       // Availability Routes
       <Route path="/availability-home" component={AvailabilityHome} />
       <Route path="/set-availability" component={SetAvailability} />
+      // Booking routes
+      <Route path="/booking-home" component={BookingHome} />
+      <Route path="/add-booking" component={CreateBooking} />
+      <Route path="/view-booking" component={DisplayBooking} />
       </Route>
     </Router>
     </MuiThemeProvider>,
